@@ -1,0 +1,19 @@
+go to a folder
+=>python3 -m venv myVirtualEnv
+=>myVirtualEnv\scripts\activate
+
+=>pip list //to see what are installed
+
+//can install some stuff and to freeze 
+=>pip freeze
+
+//to install from requirements.txt
+=> pip install -r reqirements.txt
+
+//to deactivate
+=>deactivate
+//to delete , just delete the directory of env created by u
+
+//to create with system packages
+=>python -m venv myvenv --system-site-packages
+
