@@ -13,8 +13,6 @@ def postfixxer(prefix):
     l=len(prefix)
     for i in range(l-1,-1,-1):
         if(isOperator(prefix[i])):
-            temp=''
-            temp2=''
             temp=s.pop()
             temp2=temp+s.pop()+prefix[i]
             s.push(temp2)

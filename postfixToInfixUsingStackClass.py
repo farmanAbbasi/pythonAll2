@@ -13,8 +13,6 @@ def infixxer(postfix):
     l=len(postfix)
     for i in range(l):
         if(isOperator(postfix[i])):
-            temp=''
-            temp2=''
             temp=s.pop()
             temp2='('+s.pop()+postfix[i]+temp+')'
             s.push(temp2)

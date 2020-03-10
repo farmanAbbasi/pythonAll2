@@ -280,6 +280,94 @@ public static void mirrorTree(Node root){
 
 		return root;
 	}
+    public static int sumAtDeepestLevel(Node root){
+        Queue<Node> q=new LinkedList<>();
+        q.add(root);
+        int sumAtDeepestLevel=0;
+        int count=0;
+        while(!q.isEmpty()){
+            count=q.size();
+            sumAtDeepestLevel=0;
+            while(count>0){
+                Node x= q.remove();
+                System.out.print(x.data+" ");   
+                sumAtDeepestLevel+=x.data;
+                if(x.left!=null){
+                    q.add(x.left);
+                }
+                if(x.right!=null){
+                    q.add(x.right);
+                }
+                count-=1;
+            }
+            System.out.println();
+        }
+        return sumAtDeepestLevel;
+    }
+
+
+    public static void preOrderTraversalIterative(Node root){
+        Stack<Node> s=new Stack<>();
+        s.push(root);
+        Node temp;
+        while(!s.isEmpty()){
+            temp=s.pop();
+            System.out.print(temp.data+" ");
+            //note pehle right push hua hai as pehle left print karna hai
+             if(temp.right!=null){
+                s.push(temp.right);  
+            }
+            if(temp.left!=null){
+                s.push(temp.left);
+            }
+        }
+        System.out.println();
+    }
+
+      public static void postOrderTraversalIterative(Node root){
+        Stack<Node> s=new Stack<>();
+        Stack<Node> t=new Stack<>();
+        s.push(root);
+        Node temp;
+        while(!s.isEmpty()){
+             temp=s.pop();
+             t.push(temp);
+             if(temp.left!=null){
+                s.push(temp.left);
+            }
+             if(temp.right!=null){
+                s.push(temp.right);  
+            }
+        }
+        while(!t.isEmpty()){
+            temp=t.pop();
+            System.out.print(temp.data+" ");
+        }
+        System.out.println();
+    }
+
+    public static void inOrderTraversalIterative(Node root){
+        Stack<Node> s=new Stack<>();
+        Node temp=root;
+        while(!s.isEmpty() || temp!=null){
+             if(temp!=null){
+                s.push(temp);
+                temp=temp.left;
+            }
+            else{
+                temp=s.pop();
+                System.out.print(temp.data+" ");
+                temp=temp.right;  
+            }
+            
+            
+        }
+    
+        System.out.println();
+    }
+  }
+
+   
 
 
 
@@ -298,12 +386,16 @@ public static void mirrorTree(Node root){
     //System.out.println(minimumAtRightSubTree(groot));
      //deleteNode(groot,12);
      //treeTraversal(groot);\
-	 levelOrderTraversal(groot);
+	 //levelOrderTraversal(groot);
      //mirrorTree(groot);
      //treeTraversal(groot);
-     leftViewOfTree(groot);
-     rightViewOfTree(groot);
-
+     //leftViewOfTree(groot);
+     //rightViewOfTree(groot);
+     //System.out.println("Sum at deepest level : "+sumAtDeepestLevel(groot));
+     preOrderTraversalIterative(groot);
+     postOrderTraversalIterative(groot);
+     inOrderTraversalIterative(groot);
+     
     }
 }
 
