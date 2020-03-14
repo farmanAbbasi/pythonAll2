@@ -20,6 +20,12 @@ public class Graph
     {
         adjLists[src].add(dest);
     }
+    boolean hasEdge(int src, int dest){
+        if (adjLists[src].contains(dest)){
+            return true;
+        }
+        return false;
+    }
     public void printHelper(){
         int node=0;
         for(LinkedList<Integer> i: adjLists){
