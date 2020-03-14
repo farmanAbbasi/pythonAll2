@@ -31,7 +31,6 @@ def nextLargestNumber(arr):
             j=j+1
             if arr[s[len(s)-1]] >arr[j]:
                 s.append(i)
-               
             else:
                 a[s.pop()]=arr[j]
                 j-=1
